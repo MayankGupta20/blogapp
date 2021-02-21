@@ -1,7 +1,7 @@
 import reactDom from "react-dom";
 import React ,{Component} from 'react'
 
-
+import {Link} from 'react-router-dom';
 class Home extends Component{
     constructor(props) {
         super(props)
@@ -41,7 +41,7 @@ class Home extends Component{
               <td>{user.id}</td>
               <td>{user.name}</td>
               <td>{user.company.name}</td>
-              <td>Post link</td>
+              <td><Link to={`/posts/${user.id}`}>Click to view User Posts</Link></td>
             </tr>
           )
         })
@@ -61,11 +61,11 @@ class Home extends Component{
     
         return users.length > 0
           ? (
-            <table>
+            <table> 
+                 
               <thead>
-                <tr>
+                
                   {this.renderTableHeader()}
-                </tr>
               </thead>
               <tbody>
                 {this.renderTableRows()}
